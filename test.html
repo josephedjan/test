@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joseph Edjan | Mechanical Engineer</title>
+    <style>
+        :root {
+            --primary: #0071e3;
+            --primary-light: #42a5f5;
+            --primary-dark: #0058b9;
+            --secondary: #f2f2f2;
+            --dark: #1d1d1f;
+            --gray: #86868b;
+            --gray-light: #f5f5f7;
+            --highlight: #06c;
+            --border-radius: 14px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+            --transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.5;
+            color: var(--dark);
+            background-color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            letter-spacing: -0.015em;
+        }
+        
+        .display-text {
+            font-size: 56px;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+        }
+        
+        .headline-text {
+            font-size: 40px;
+            line-height: 1.1;
+            font-weight: 600;
+        }
+        
+        .title-text {
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 600;
+        }
+        
+        .subtitle-text {
+            font-size: 21px;
+            line-height: 1.4;
+            font-weight: 400;
+            color: var(--gray);
+        }
+        
+        .body-text {
+            font-size: 17px;
+            line-height: 1.5;
+        }
+        
+        .caption-text {
+            font-size: 14px;
+            line-height: 1.4;
+            font-weight: 400;
+            color: var(--gray);
+        }
+        
+        .highlight {
+            color: var(--highlight);
+        }
+        
+        /* Header and Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            z-index: 100;
+            transition: var(--transition);
+        }
+        
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        nav {
+            height: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-size: 14px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark);
+        }
+        
+        /* Hero Section */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 180px 0 100px;
+            background-color: white;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin-bottom: 64px;
+        }
+        
+        .hero-title {
+            margin-bottom: 16px;
+        }
+        
+        .hero-subtitle {
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: var(--dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e5e5e5;
+            transform: scale(1.05);
+        }
+        
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            color: var(--dark);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        /* Featured Projects Section */
+        .featured-projects {
+            padding: 0 0 120px;
+            background-color: white;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+        
+        .section-title {
+            margin-bottom: 16px;
+        }
+        
+        .section-subtitle {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        
+        .project-card {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            background-color: white;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-16px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+        }
+        
+        .project-content {
+            padding: 24px;
+        }
+        
+        .project-title {
+            margin-bottom: 8px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .project-subtitle {
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .project-description {
+            margin-bottom: 16px;
+            font-size: 15px;
+            color: var(--dark);
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 16px 0;
+        }
+        
+        .tag {
+            background-color: var(--gray-light);
+            color: var(--dark);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--primary);
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            opacity: 0.8;
+            gap: 10px;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 120px 0;
+            background-color: var(--gray-light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+        
+        .about-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-details {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        .about-text {
+            margin-bottom: 8px;
+        }
+        
+        .about-shape-1 {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, rgba(0, 113, 227, 0.1), rgba(66, 165, 245, 0.1));
+            z-index: 0;
+        }
+        
+        .about-shape-2 {
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, rgba(0, 113, 227, 0.05), rgba(66, 165, 245, 0.05));
+            z-index: 0;
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: 120px 0;
+            background-color: white;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            margin-top: 64px;
+        }
+        
+        .skill-card {
+            background-color: white;
+            padding: 32px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .skill-icon {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 24px;
+        }
+        
+        .skill-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            color: var(--dark);
+        }
+        
+        .skill-list li::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            margin-right: 12px;
+        }
+        
+        /* Experience Section */
+        .experience {
+            padding: 120px 0;
+            background-color: var(--gray-light);
+        }
+        
+        .timeline {
+            max-width: 900px;
+            margin: 64px auto 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-item {
+            margin-bottom: 64px;
+            position: relative;
+            width: 100%;
+        }
+        
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-content {
+            width: calc(50% - 40px);
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            float: left;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            float: right;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            right: -12px;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            transform: rotate(45deg);
+            box-shadow: 2px -2px 2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            left: -12px;
+            width: 24px;
+            height: 24px;
+            background-color: white;
+            transform: rotate(45deg);
+            box-shadow: -2px 2px 2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            left: 50%;
+            top: 24px;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.2);
+        }
+        
+        .timeline-date {
+            position: absolute;
+            top: 24px;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            width: 100px;
+            padding: 6px 12px;
+            background-color: var(--primary);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-date {
+            right: calc(50% + 40px);
+            transform: translateX(50%);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-date {
+            left: calc(50% + 40px);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .timeline-subtitle {
+            font-size: 14px;
+            font-style: italic;
+            margin-bottom: 16px;
+            color: var(--gray);
+        }
+        
+        .timeline-description {
+            font-size: 15px;
+            color: var(--dark);
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 120px 0;
+            background-color: white;
+        }
+        
+        .contact-container {
+            max-width: 800px;
+            margin: 64px auto 0;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .contact-info {
+            padding: 40px;
+            background: linear-gradient(145deg, var(--primary), var(--primary-dark));
+            color: white;
+        }
+        
+        .contact-info-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .contact-detail:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            font-size: 18px;
+            margin-right: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+        
+        .contact-text {
+            font-size: 15px;
+        }
+        
+        .contact-text strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .contact-form {
+            padding: 40px;
+        }
+        
+        .contact-form-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 24px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            font-size: 15px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 64px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        
+        .footer-text {
+            color: var(--gray);
+            max-width: 320px;
+            margin-bottom: 24px;
+        }
+        
+        .footer-links-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+        
+        .footer-copyright {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .footer-social a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .footer-social a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-2 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-3 {
+            animation-delay: 0.5s;
+        }
+        
+        .delay-4 {
+            animation-delay: 0.7s;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .display-text {
+                font-size: 42px;
+            }
+            
+            .headline-text {
+                font-size: 32px;
+            }
+            
+            .title-text {
+                font-size: 24px;
+            }
+            
+            .subtitle-text {
+                font-size: 18px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .timeline-content {
+                width: calc(50% - 30px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-nav {
+                position: fixed;
+                top: 48px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                padding: 24px;
+                display: none;
+                z-index: 99;
+            }
+            
+            .mobile-nav.active {
+                display: block;
+            }
+            
+            .mobile-nav-links {
+                list-style: none;
+            }
+            
+            .mobile-nav-links li {
+                margin-bottom: 16px;
+            }
+            
+            .mobile-nav-links a {
+                font-size: 16px;
+                text-decoration: none;
+                color: var(--dark);
+                font-weight: 500;
+                display: block;
+                padding: 8px 0;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                float: right !important;
+            }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -12px;
+                right: auto;
+                top: 24px;
+            }
+            
+            .timeline-dot {
+                left: 20px;
+            }
+            
+            .timeline-date {
+                position: relative;
+                top: 0;
+                left: 0 !important;
+                right: 0 !important;
+                transform: none !important;
+                margin-bottom: 16px;
+                display: inline-block;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .display-text {
+                font-size: 36px;
+            }
+            
+            .headline-text {
+                font-size: 28px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Joseph Edjan</a>
+                <ul class="nav-links">
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+        <div class="mobile-nav" id="mobileNav">
+            <ul class="mobile-nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="display-text hero-title animate">Mechanical Engineer<br>focused on <span class="highlight">precision design</span></h1>
+                <p class="subtitle-text hero-subtitle animate delay-1">UCSD graduate with specialized training in CAD/BIM and a passion for innovative engineering solutions</p>
+                <div class="btn-group animate delay-2">
+                    <a href="#projects" class="btn btn-primary">View Projects <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+                <div class="social-links animate delay-3">
+                    <a href="https://www.linkedin.com/in/jedjan52" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:josephedjan@outlook.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:6197046248" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="featured-projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="headline-text section-title animate">Featured Projects</h2>
+                <p class="subtitle-text section-subtitle animate delay-1">Engineering solutions that demonstrate precision, innovation, and technical expertise</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card animate delay-1">
+                    <img src="/api/placeholder/800/500" alt="Collins Aerospace Space Efficient Duct Optimization" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Collins Aerospace Duct Optimization</h3>
+                        <p class="project-subtitle">Senior Capstone Project</p>
+                        <p class="project-description">Designed and manufactured plastic air ducts with SolidWorks and PRUSA SL1S 3D printers, achieving flow parameter data with only 0.05% error rate relative to company specifications.</p>
+                        <div class="project-tags">
+                            <span class="tag">SolidWorks</span>
+                            <span class="tag">3D Printing</span>
+                            <span class="tag">Fluid Dynamics</span>
+                        </div>
+                        <a href="#" class="project-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card animate delay-2">
+                    <img src="/api/placeholder/800/500" alt="Spring-Loaded Cannon" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Spring-Loaded Cannon</h3>
+                        <p class="project-subtitle">Mechanical Design Project</p>
+                        <p class="project-description">Fabricated an aluminum cannon using manual lathe and mill operations, with toolpath CNC programming via Autodesk Fusion and Tormach software.</p>
+                        <div class="project-tags">
+                            <span class="tag">CNC Machining</span>
+                            <span class="tag">Autodesk Fusion</span>
+                            <span class="tag">Manufacturing</span>
+                        </div>
+                        <a href="#" class="project-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="project-card animate delay-3">
+                    <img src="/api/placeholder/800/500" alt="Remote-Controlled Box Carrying Robot" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">Remote-Controlled Robot</h3>
+                        <p class="project-subtitle">Engineering Graphics & Design</p>
+                        <p class="project-description">Designed and manufactured a drivetrain robot component that improved omnidirectional movement by 20% using Autodesk Fusion, MakerBot software, and Lasercamm.</p>
+                        <div class="project-tags">
+                            <span class="tag">Robotics</span>
+                            <span class="tag">Autodesk</span>
+                            <span class="tag">Laser Cutting</span>
+                        </div>
+                        <a href="#" class="project-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="about-shape-1"></div>
+        <div class="about-shape-2"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="headline-text section-title animate">About Me</h2>
+                <p class="subtitle-text section-subtitle animate delay-1">Mechanical Engineer with a focus on precision design and analysis</p>
+            </div>
+            <div class="about-content">
+                <div class="about-image animate delay-1">
+                    <img src="/api/placeholder/800/600" alt="Joseph Edjan - Mechanical Engineer">
+                </div>
+                <div class="about-details animate delay-2">
+                    <div>
+                        <p class="body-text about-text">Recent Mechanical Engineering graduate from UC San Diego with a minor in History. My technical expertise spans CAD modeling, analysis tools, and manufacturing processes.</p>
+                        <p class="body-text about-text">Currently enhancing my skills with specialized certification in Mechanical Analysis and Design & CAD/BIM through UC San Diego's Division of Extended Studies.</p>
+                        <p class="body-text about-text">My experience in research laboratories and hands-on projects has shaped my approach to engineering challenges, focusing on innovative and precise solutions.</p>
+                    </div>
+                    <a href="#contact" class="btn btn-primary">Contact Me <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="headline-text section-title animate">Technical Skills</h2>
+                <p class="subtitle-text section-subtitle animate delay-1">Professional proficiencies in design, analysis, and manufacturing</p>
+            </div>
+            <div class="skills-container">
+                <div class="skill-card animate delay-1">
+                    <div class="skill-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <h3 class="skill-title">CAD & Design</h3>
+                    <ul class="skill-list">
+                        <li>SolidWorks</li>
+                        <li>Autodesk Fusion 360</li>
+                        <li>AutoCAD</li>
+                        <li>Revit</li>
+                        <li>CNC Mastercam</li>
+                    </ul>
+                </div>
+                <div class="skill-card animate delay-2">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="skill-title">Analysis Tools</h3>
+                    <ul class="skill-list">
+                        <li>FEMAP</li>
+                        <li>ANSYS</li>
+                        <li>MATLAB</li>
+                        <li>Finite Element Analysis</li>
+                        <li>Technical Documentation</li>
+                    </ul>
+                </div>
+                <div class="skill-card animate delay-3">
+                    <div class="skill-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="skill-title">Manufacturing</h3>
+                    <ul class="skill-list">
+                        <li>3D Printing (PRUSA)</li>
+                        <li>Lathe/Mill Tools</li>
+                        <li>CNC Machining</li>
+                        <li>Laser Cutting</li>
+                        <li>Prototyping</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="headline-text section-title animate">Experience & Education</h2>
+                <p class="subtitle-text section-subtitle animate delay-1">My academic and professional journey</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item animate">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2024-Present</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Specialized Certification</h3>
+                        <p class="timeline-subtitle">UC San Diego - Division of Extended Studies</p>
+                        <p class="timeline-description">Pursuing advanced certification in Mechanical Analysis and Design & CAD/BIM to enhance technical expertise.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate delay-1">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2023-2024</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Undergraduate Research Assistant</h3>
+                        <p class="timeline-subtitle">Medically Advanced Devices Laboratory (MADlab)</p>
+                        <p class="timeline-description">Designed a four bar linkage using SolidWorks for additive manufacturing of sensor clamps for an ONR-sponsored project.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate delay-2">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2021-2024</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Fluid Systems Team Member</h3>
+                        <p class="timeline-subtitle">Rocket Propulsion Laboratory (RPL)</p>
+                        <p class="timeline-description">Analyzed P&ID diagrams to render a 3D CAD model of a liquid oxygen filter via SolidWorks for a bipropellant rocket competition.</p>
+                    </div>
+                </div>
+                <div class="timeline-item animate delay-3">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">2020-2024</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">B.S. Mechanical Engineering</h3>
+                        <p class="timeline-subtitle">University of California, San Diego</p>
+                        <p class="timeline-description">Graduated with a minor in History. Focused on mechanical design, analysis, and manufacturing processes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="headline-text section-title animate">Let's Connect</h2>
+                <p class="subtitle-text section-subtitle animate delay-1">Reach out to discuss collaboration opportunities or to learn more about my work</p>
+            </div>
+            <div class="contact-container animate delay-2">
+                <div class="contact-info">
+                    <h3 class="contact-info-title">Contact Information</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Email</strong>
+                            josephedjan@outlook.com
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Phone</strong>
+                            (619) 704-6248
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Location</strong>
+                            San Diego, California
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>LinkedIn</strong>
+                            linkedin.com/in/jedjan52
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 class="contact-form-title">Send Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">Joseph Edjan</div>
+                    <p class="footer-text">Mechanical Engineer specializing in CAD design, analysis, and manufacturing with a focus on innovation and technical excellence.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/jedjan52" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="mailto:josephedjan@outlook.com"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:6197046248"><i class="fas fa-phone"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-links-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-links-title">Projects</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Collins Aerospace Duct Optimization</a></li>
+                        <li><a href="#">Spring-Loaded Cannon</a></li>
+                        <li><a href="#">Remote-Controlled Robot</a></li>
+                        <li><a href="#">Residential Home Design</a></li>
+                        <li><a href="#">Office Building Architectural Plan</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 Joseph Edjan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            
+            if (mobileMenuBtn.querySelector('i').classList.contains('fa-bars')) {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.add('fa-times');
+            } else {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Animation on scroll
+        const animateElements = document.querySelectorAll('.animate');
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        animateElements.forEach(element => {
+            element.style.animationPlayState = 'paused';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
